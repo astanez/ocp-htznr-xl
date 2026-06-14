@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: tekton-samples
   # Usually deployed in the openshift-gitops namespace where the operator runs
-  namespace: ocp-tekton-examples 
+  namespace: openshift-gitops
 spec:
   project: default
   source:

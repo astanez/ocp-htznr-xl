@@ -2,21 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: tekton-samples
-  # Usually deployed in the openshift-gitops namespace where the operator runs
   namespace: openshift-gitops
 spec:
   project: default
   source:
-    # Replace with the URL of your Git repository containing the manifests
-    repoURL: 'https://github.com/astanez/hetzner-epyc-ocp-gitops.git' #
+    repoURL: 'https://github.com/astanez/hetzner-epyc-ocp-gitops.git' # Replace with your repo URL
     targetRevision: HEAD
-    path: tekton-samples # 
+    path: tekton-samples
   destination:
-    server: 'https://kubernetes.default.svc' # Deploys to the local cluster
-    namespace: ocp-pipelines-examples # Target namespace for the application
+    server: 'https://kubernetes.default.svc'
+    namespace: ocp-tekton-examples
   syncPolicy:
     automated:
-      prune: true # Automatically deletes resources removed from Git
-      selfHeal: true # Automatically overwrites manual changes made in the cluster
-    syncOptions:
-      - CreateNamespace=true # Creates ocp-pipelines-examples if it doesn't exist
+      prune: true
+      selfHeal: true

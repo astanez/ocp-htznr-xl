@@ -1,3 +1,3 @@
 App A
 
-OCP config to be pushed via gitops .
+OCP config to be pushed via gitops
